@@ -1,0 +1,8 @@
+SELECT B1.N,
+   CASE
+       WHEN B1.P IS NULL THEN 'Root'
+       WHEN B1.N IN (SELECT B2.P FROM BST B2) THEN 'Inner'
+       ELSE 'Leaf'
+   END
+FROM BST B1
+ORDER BY B1.N
